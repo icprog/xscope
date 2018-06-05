@@ -62,11 +62,11 @@ void ScopeChannel::probeValue(uint16_t value, bool use_trigger) {
 			
 			// check event
 			if ( parent->triggerEvent == MainFrameInstance::TRIGGER_RISING ) {
-				if ( getBuffer(buffer, pBuffer) < parent->triggerlevelValue && value > parent->triggerlevelValue ) {
+				if ( getBufferLast(buffer, pBuffer) < parent->triggerlevelValue && value > parent->triggerlevelValue ) {
 					triggered = true; // rising edge
 				}
 			} else if ( parent->triggerEvent == MainFrameInstance::TRIGGER_FALLING ) {
-				if ( getBuffer(buffer, pBuffer) > parent->triggerlevelValue && value < parent->triggerlevelValue ) {
+				if ( getBufferLast(buffer, pBuffer) > parent->triggerlevelValue && value < parent->triggerlevelValue ) {
 					triggered = true; // falling edge
 				}
 			}
